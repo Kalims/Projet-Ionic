@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content padding>
+    <ion-list *ngIf="sentences">
+      <ion-item *ngFor="let sentence of sentences">
+          <button ion-button large full (click)=onSubmit(sentence.text)>{{sentence.text}}</button>
+      </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-item>
+      <ion-label color="primary" floating>Texte libre</ion-label>
+      <ion-textarea [(ngModel)]="freetext"></ion-textarea>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button (click)="onSubmit(freetext)" [disabled]="!freetext">Parler</button>
+
+</ion-content>
